@@ -1,0 +1,40 @@
+{
+  "name": "clientflow",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint src tests next.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0",
+    "typecheck": "next typegen && tsc --noEmit",
+    "format": "prettier --write src tests README.md docs/ARCHITECTURE.md docs/SUPABASE_SETUP.md package.json next.config.ts tsconfig.json eslint.config.mjs playwright.config.ts .prettierrc.json",
+    "format:check": "prettier --check src tests README.md docs/ARCHITECTURE.md docs/SUPABASE_SETUP.md package.json next.config.ts tsconfig.json eslint.config.mjs playwright.config.ts .prettierrc.json",
+    "test": "playwright test && npm run test:offline && npm run test:pkce && npm run test:workspace",
+    "test:offline": "CLIENTFLOW_TEST_MODE=offline playwright test",
+    "test:pkce": "CLIENTFLOW_TEST_MODE=pkce playwright test",
+    "test:workspace": "CLIENTFLOW_TEST_MODE=workspace playwright test"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.2",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "22.20.6",
+    "@types/react": "19.3.2",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "prettier": "3.10.1",
+    "supabase": "3.4.0",
+    "typescript": "6.0.3"
+  }
+}

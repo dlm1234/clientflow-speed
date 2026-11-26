@@ -1,0 +1,30 @@
+node_modules/
+.next/
+next-env.d.ts
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+
+# Local agent, cloud, and deployment state
+/.codex/
+/.agents/
+/.aws/
+/.vercel/
+/supabase/.temp/
+/supabase/.branches/
+/setup-agents.sh
+/odd/
+
+# Raw verification artifacts stay local; publish the curated evidence summary.
+/docs/evidence/
+*.log
+*:Zone.Identifier
+*.pem
+*.key
+.npmrc
+.netrc
